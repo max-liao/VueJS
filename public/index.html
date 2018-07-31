@@ -1,57 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta>
-    <meta charset="UTF-8">
-    <title>Hello World in Vue.js</title>
-  </meta>
-
-
-
+<meta>
+<meta charset="UTF-8">
+<title>Hello World in Vue.js</title>
+</meta>
 
 <script src="https://unpkg.com/vue"></script>
 <!-- <script src="js/vue.js"></script> -->
 <script src="js/index.js"></script>
 
-
 <body>
 
-<div id="hello-world-app">
-    <h1>{{ msg }}</h1>
-    <input v-model="msg">
-</div>
+    <div id="hello-world-app">
+        <h1>{{ msg }}</h1>
+        <input v-model="msg">
+    </div>
 
-<div id= "list">
-    <ul>
-        <li v-for="product in products">
-            {{product}}
-        </li>
-    </ul>
-</div>
+    <div id="hoverTip">
+        <span v-bind:title="message">
+            Hover to see my dynamically bound title!
+        </span>
+    </div>
 
-<div id="CountButton">
-    <button
-</div>
+    <div id="list">
+        <ul>
+            <li v-for="product in products">
+                {{product}}
+            </li>
+        </ul>
+    </div>
 
-<script>
-var app = new Vue({
-    el: "#hello-world-app",
-    data: {
-        msg: 'Hello World!'
-    }
-});
+    <button id="CountButton" @click=""> {{name}} </button>
 
-var list = new Vue({
-    el: "#list",
-    data: {
-        products:[
-        'Hello World!',
-        'Hi Max'  
-        ] 
-    }
-});
+    <script>
+        var app = new Vue({
+            el: "#hello-world-app",
+            data: {
+                msg: 'Hello World!'
+            }
+        });
 
-var button = new Vue({el:"CountButton"});
+        var app2 = new Vue({
+            el: '#hoverTip',
+            data: {
+                message: 'You loaded this page on ' + new Date().toLocaleString()
+            }
+        })
 
-</script>
+        var list = new Vue({
+            el: "#list",
+            data: {
+                products: [
+                    'Hello World!',
+                    'Hi Max'
+                ]
+            }
+        });
+
+        var button = new Vue({
+            el: "#CountButton",
+            data: {
+                name: 'Button'
+            }
+        });
+
+    </script>
 </body>
+
 </html>
