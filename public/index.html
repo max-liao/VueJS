@@ -5,18 +5,19 @@
 <title>Hello World in Vue.js</title>
 </meta>
 
-<script src="https://unpkg.com/vue"></script>
 <!-- <script src="js/vue.js"></script> -->
+<script src="https://unpkg.com/vue"></script>
 <script src="js/index.js"></script>
+<script src="components/todo.js"></script>
 
 <body>
 
-    <div id="hello-world-app">
+    <div id="hello-world">
         <h1>{{ msg }}</h1>
         <input v-model="msg">
     </div>
 
-    <div id="hoverTip">
+    <div id="hoverTip" v-if="seen">
         <span v-bind:title="message">
             Hover to see my dynamically bound title!
         </span>
@@ -28,39 +29,82 @@
                 {{product}}
             </li>
         </ul>
+        <ul id="testList">
+            <todo-item v-for="object in groceryList" v-bind:todo="object" v-bind:key="object.id">
+            </todo-item>
+        </ul>
+
     </div>
 
-    <button id="CountButton" @click=""> {{name}} </button>
+    <button id="CountButton" @click="reverseMessageFunc"> {{MESSAGE}} </button>
 
     <script>
-        var app = new Vue({
-            el: "#hello-world-app",
+        // var fruit = new Vue({
+        //     el:"#fruit",
+        //     data: {
+        //         FruitObj = {id = 4, text: 'Fruits'}
+        //     }
+        // });
+
+        var helloWorld = new Vue({
+            el: "#hello-world",
             data: {
                 msg: 'Hello World!'
             }
         });
 
-        var app2 = new Vue({
+        var hover = new Vue({
             el: '#hoverTip',
             data: {
-                message: 'You loaded this page on ' + new Date().toLocaleString()
+                message: 'You loaded this page on ' + new Date().toLocaleString(),
+                seen: true
             }
-        })
+        });
+
+        var testList = new Vue({
+            el: "#testList",
+            data: {
+                groceryList: [
+                    { id: 0, text: 'Veg' },
+                    { id: 1, text: 'Cheese' },
+                    { id: 2, text: 'Food' }
+                ]
+            }
+        });
 
         var list = new Vue({
             el: "#list",
             data: {
                 products: [
-                    'Hello World!',
-                    'Hi Max'
+                    'Oreos',
+                    'Cheesecake'
+                ],
+                groceryList: [
+                    { id: 0, text: 'Vegetables' },
+                    { id: 1, text: 'Cheese' },
+                    { id: 2, text: 'Whatever else humans are supposed to eat' }
                 ]
+            },
+            methods: {
+                remove: function () {
+                    console.log("hello");
+                },
+                add: function () {
+                    console.log("HI")
+                }
             }
         });
+        // list.products.push("Thanks for replying world");
 
         var button = new Vue({
             el: "#CountButton",
             data: {
-                name: 'Button'
+                MESSAGE: 'RACECAR HaHaH...'
+            },
+            methods: {
+                reverseMessageFunc: function () {
+                    this.MESSAGE = this.MESSAGE.split('').reverse().join('')
+                }
             }
         });
 
