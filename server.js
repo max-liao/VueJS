@@ -16,13 +16,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/jsoon
 app.use(bodyParser.json());
 
-router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "./public/index.html"));
-  });
+// router.get('/instance', (req, res) => {
+//   res.sendFile(path.join(__dirname, "./public/instance.html"));
+// });
 
 // Express Routes
-// const routes = require('./public/routes/');
-// (0, _routes.default)(app);
+const routes = require('./public/routes/router');
+app.use('/', routes);
+
 
 app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
