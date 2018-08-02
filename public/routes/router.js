@@ -1,10 +1,9 @@
-
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 const path = require("path");
 
 // middleware that is specific to this router
-router.use(function timeLog(req, res, next) {
+router.use(function Middleware(req, res, next) {
   // console.log('Time: ', Date.now())
   next();
 })

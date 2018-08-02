@@ -5,8 +5,10 @@ var vm = new Vue({
   el: '#example',
   data: data,
   created: function () {
+    // Other hooks: mounted (vm$mount: if element found, vm$el replaces element),
+    // destroyed [vm$destroy()], or updated
+    console.log("Anything under the 'created:' hook runs when instance is created.");
     // `this` points to the vm instance
-    console.log("Created hook allows this function to run when instance is created.");
     console.log('a is: ' + this.a);
   }
 })
@@ -18,3 +20,20 @@ vm.$el === document.getElementById('example') // => true
 vm.$watch('a', function (newValue, oldValue) {
   // This callback will be called when `vm.a` changes
 })
+
+var NavTabs = new Vue({
+    el: "#NavTabs",
+    data: {
+        Array: [
+            {id:0, url:"/", text:"Home"},
+            {id:1, url:"/about", text:"About"}
+        ]
+    }
+});
+
+var NavBar = new Vue({
+    el: "#Nav1",
+    data: {
+
+    }
+});
