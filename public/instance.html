@@ -6,30 +6,17 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-
 <script src="js/vue.js"></script>
 <script src="components/NavBar.js"></script>
 <script src="components/NavEl.js"></script>
 
 <body>
     <div id= "NavTabs">
-        <navbar id="Nav1"></navbar>
+        <navbar id="Nav1" v-bind:href="HomeURL"></navbar>
         <navele v-for="object in Array" v-bind:href="object.url" v-bind:text="object.text" v-bind:key="object.key"></navele>
     </div>
     <div id="example"></div>
 </body>
 
-<script>
-    // var vm = new Vue({
-    //     data: {
-    //         newTodoText: '',
-    //         visitCount: 0,
-    //         hideCompletedTodos: false,
-    //         todos: [],
-    //         error: null
-    //     }
-    // });
-</script>
 <script src="js/instance.js"></script>
-
 </html>

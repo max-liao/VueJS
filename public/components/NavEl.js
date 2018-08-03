@@ -6,10 +6,10 @@ Vue.component('navele', {
     template: '<a :href="href">{{text}} </a>',
     methods: {
         remove: function () {
-            console.log("hello");
+            console.log("REMOVE");
         },
         add: function () {
-            console.log("HI")
+            console.log("ADD");
         }
     }
 });

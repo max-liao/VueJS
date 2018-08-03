@@ -1,7 +1,7 @@
 // Define a new component called todo-item
 Vue.component('navbar', {
     props: {
-        home: String
+        href: String
     },
 
     template:
@@ -15,7 +15,7 @@ Vue.component('navbar', {
 						<span class="icon-bar"></span>\
                     </a>\
                     <h1 class="brand">\
-                        <a href="index.html">Hello World!</a>\
+                        <a v-bind:href="href">Hello World!</a>\
 					</h1>\
                 </div>\
             </div>\
