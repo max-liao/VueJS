@@ -24,7 +24,7 @@ vm.$watch('a', function (newValue, oldValue) {
 var NavTabs = new Vue({
     el: "#NavTabs",
     data: {
-        HomeURL: '/',
+        HomeURL: '',
         Array: [
             {id:0, url:"/", text:"Home"},
             {id:1, url:"/about", text:"About"},
@@ -33,9 +33,11 @@ var NavTabs = new Vue({
     }
 });
 
-var NavBar = new Vue({
-    el: "#Nav1",
+var Button = new Vue({
+    el: "#button",
     data: {
+        isButtonDisabled: null, //false/null/undefined/disabled turn off
+        test: "hello"
         // rawHTML: "<a id={{href}}>Hello World!</a>"
     }
 });

@@ -12,10 +12,11 @@
 
 <body>
     <div id= "NavTabs">
-        <navbar id="Nav1" v-bind:href="HomeURL"></navbar>
+        <navbar id="Nav1" :href="'/' + HomeURL"></navbar>
         <navele v-for="object in Array" v-bind:href="object.url" v-bind:text="object.text" v-bind:key="object.key"></navele>
     </div>
-    <div id="example"></div>
+    <div id="example"></div>   
+    <button id="button" v-bind:disabled="isButtonDisabled"> {{test}} </button>
 </body>
 
 <script src="js/instance.js"></script>

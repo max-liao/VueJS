@@ -3,7 +3,6 @@ Vue.component('navbar', {
     props: {
         href: String
     },
-
     template:
     '<div class="navbar-wrapper"> \
         <div class="navbar navbar-inverse navbar-fixed-top">\
