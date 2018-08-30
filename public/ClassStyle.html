@@ -1,0 +1,55 @@
+<html lang="en">
+<meta charset="UTF-8">
+<title>Instance in Vue.js</title>
+</meta>
+
+<script src="js/vue.js"></script>
+
+<!-- Axios and Lodash -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script> -->
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+<body>
+    <div id="classTest" class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }" v-bind:style="{ color: activeColor, fontSize: fontSize}">
+        Hello World
+    </div>
+    <!-- activeClass if isActive is truthy. Always applies errorClass -->
+    <div id="ArrayClassTest" class="static" v-bind:class="[{ active: isActive }, errorClass]" v-bind:style="[styleObject]">
+        <!-- <div id="ArrayClassTest" class="static" v-bind:class="[isActive ? activeClass : '', errorClass]"> -->
+        Array Class
+    </div>
+
+    <div id="conditionals">
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+<!-- Generally speaking, v-if has higher toggle costs while v-show has higher initial render costs. So prefer v-show if you need to toggle something very often, and prefer v-if if the condition is unlikely to change at runtime. -->
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+        <!-- <input placeholder="Enter your username" key="username-input"> -->
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+        <!-- <input placeholder="Enter your email address" key="email-input"> -->
+    </template>
+    </div>
+</body>
+
+<script src="js/ClassStyle.js"></script>
+
+</html>

@@ -2,15 +2,20 @@
 <html lang="en">
 <meta>
 <meta charset="UTF-8">
-<title>Hello World in Vue.js</title>
+<title>Vue.js Practice</title>
 </meta>
-<script src="https://unpkg.com/vue"></script>
+<!-- Vue.js -->
+<script src="js/vue.js"></script>
+<!-- <script src="https://unpkg.com/vue"></script> -->
+<!-- Components -->
 <script src="components/todo.js"></script>
 
 <body>
     <nav id="NavBar">
         <a href="/instance">Instance</a>
-        <a href="/about">About</a>
+        <a href="/home">Home</a>
+        <a href="/classStyle">Class and Style</a>
+        <a href="/vuex">Vuex</a>
     </nav>
 
     <div id="hello-world">
@@ -26,19 +31,38 @@
 
     <div id="list">
         <ul>
-            <li v-for="product in products">
-                {{product}}
+            <li v-for="(product, index) in products">
+                {{HashTag}} {{index}}: {{product}}
             </li>
         </ul>
         <ul id="testList">
-            <todo-item v-for="object in groceryList" v-bind:todo="object" v-bind:key="object.id">
+            <todo-item v-for="(value, key, index) in groceryList" v-bind:todo="value" v-bind:key="index" v-bind:index="index">
             </todo-item>
+            <!-- <li  v-for="(value, key, index) in groceryList">{{index}}.{{key}}.{{value}}</li> -->
+            <!-- <li v-for="n in oddNumbers">{{ n }}</li> -->
+            <!-- <span v-for="n in 10">{{ n }} </span> -->
         </ul>
-
     </div>
 
+    <ul id="ForIf">
+        <!-- <li v-for="value in tasks" v-if="!value.isComplete">
+            {{ value.task }}
+        </li> -->
+        <ul v-if="tasks.length">
+            <li v-for="value in tasks">
+                {{ value.task }}
+            </li>
+        </ul>
+        <p v-else>No todos left!</p>
+    </ul>
+
     <button id="CountButton" @click="reverseMessageFunc"> {{reversedMessage}} </button>
-    
+
+    <ul id="todoList">
+        <todo-list v-bind:todos="todos" v-bind:addnewtodo="addNewToDo" v-model="newToDo"></todo-list>
+    </ul>
+
+
     <script src="js/index.js"></script>
 
 </body>

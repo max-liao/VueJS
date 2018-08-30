@@ -1,23 +1,38 @@
 <html lang="en">
 <meta charset="UTF-8">
 <title>Instance in Vue.js</title>
-</meta>
-
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <script src="js/vue.js"></script>
 <script src="components/NavBar.js"></script>
 <script src="components/NavEl.js"></script>
 
+<!-- Axios and Lodash -->
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
 <body>
-    <div id= "NavTabs">
+    <div id="NavTabs">
         <navbar id="Nav1" :href="'/' + HomeURL"></navbar>
         <navele v-for="object in Array" v-bind:href="object.url" v-bind:text="object.text" v-bind:key="object.key"></navele>
     </div>
-    <div id="example"></div>   
+    <hr>
+    <div id="example">{{ fullName }} and {{yesNo}}</div>
+    <hr>
+    <div id="watch-example">
+        <p>
+            Ask a yes/no question:
+            <input v-model="question">
+        </p>
+        <p>{{ answer }}</p>
+    </div>
+    <hr>
     <button id="button" v-bind:disabled="isButtonDisabled"> {{test}} </button>
 </body>
 
 <script src="js/instance.js"></script>
+
 </html>
