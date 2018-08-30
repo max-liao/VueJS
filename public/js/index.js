@@ -114,16 +114,6 @@ var toDoList = new Vue({
       });
       console.log(this.newToDo);
     }
-  },
-  computed:{
-    newToDo:{
-      get: function (){
-          return this.test;
-      },
-      set: function (Value){
-          this.test += Value;
-      }
-    }
   }
 });
 
