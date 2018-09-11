@@ -58,10 +58,33 @@
 
     <button id="CountButton" @click="reverseMessageFunc"> {{reversedMessage}} </button>
 
-    <ul id="todoList">
+    <!-- <ul id="todoList">
         <todo-list v-bind:todos="todos" v-bind:addnewtodo="addNewToDo" v-model="newToDo"></todo-list>
-    </ul>
+    </ul> -->
 
+    <div id="keyUp">
+        <!-- <input v-on:keyup.enter="EnterFunction"> -->
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option v-for="option in options" v-bind:value="option.value">{{option.display}}</option>
+            <!-- <option v-bind:value="{ number: 1 }">A</option>
+            <option v-bind:value="{ number: 2 }">B</option>
+            <option v-bind:value="{ number: 3 }">C</option> -->
+        </select>
+         <span>Selected: {{ selected }} </span>
+          <!-- <blog-post v-for="post in BlogPosts" v-bind:post="posts"></blog-post> -->   
+    </div>
+
+    <div id="blog">
+        <!-- <div :style="{ fontSize: postFontSize +'em' }"> -->
+            <blog-post
+              v-for="post in BlogPosts"
+              v-bind:key="post.value"
+              v-bind:post="post"
+              v-on:enlarge-text = "post.FontSize += .1"
+            ></blog-post>
+          <!-- </div> -->
+    </div>
 
     <script src="js/index.js"></script>
 

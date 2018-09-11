@@ -17,3 +17,16 @@ var myComponent = new Vue({
         isActive: true
     }
 });
+
+var form = new Vue({
+    el: '#form-options',
+    data: {
+      selected: 'A',
+      options: [
+        { text: 'One', value: 'A' },
+        { text: 'Two', value: 'B' },
+        { text: 'Three', value: 'C' }
+      ]
+    },
+    props: ['picked']
+  })

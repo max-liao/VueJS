@@ -19,9 +19,23 @@
     </div>
     
     <my-component class="baz boo" v-bind:class="{ active: isActive }"></my-component>
+    
+    <div id="form-options">
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+        <br>
+        <input type="radio" v-model="picked" value="A"><label>A</label>
+        <input type="radio" v-model="picked" value="B"><label>B</label>
+        <input type="radio" v-model="picked" value="C"><label>C</label>
+        <br>
+        {{picked}}
+    </div>
 
     <script src="js/home.js"></script>
-
 </body>
 
 </html>

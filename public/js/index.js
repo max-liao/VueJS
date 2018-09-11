@@ -95,34 +95,46 @@ var ForIfExample = new Vue({
   }
 });
 
-var toDoList = new Vue({
-  el: "#todoList",
+var keyUp =  new Vue({
+  el: "#keyUp",
   data: {
-    newToDoId: 3,
-    test: "",
-    todos: [
-      {id: 0, title:"Mow Lawn"},
-      {id: 1, title:"Laundry"},
-      {id: 2, title:"Exercise"}
+    selected: '',
+    postFontSize: 1,
+    options: [
+      {display:"A", value: "1"},
+      {display:"B", value: "2"},
+      {display:"C", value: "3"}
     ]
   },
   methods:{
-    addNewToDo: function(){
-      this.todos.push({
-        id: this.newToDoId++,
-        // title: this.newToDo
-      });
-      console.log(this.newToDo);
+    enlargeText: function(){
+      console.log("Hello World");
     }
   }
 });
 
 
-// Vue.component('button'), {
-//   data: function () {
-//     return {
-//       count: 0
-//     }
-//   },
-//   template: '<button @click="quantity++">Click Me {{quantity}} times </button>'
-// }
+Vue.component('blog-post', {
+  props: ['post'],
+  template: `
+    <div :style="{ fontSize: post.FontSize +'em' }" class="blog-post">
+      <h3>{{ post.title }}</h3>
+      <button v-on:click="$emit('enlarge-text')">
+        Enlarge text
+      </button>
+      <div v-html="post.content"></div>
+    </div>
+  `
+});
+
+var blog =  new Vue({
+  el: "#blog",
+  data: {
+    postFontSize: 1,
+    BlogPosts: [
+      {title:"A blog", value: "1", FontSize: 1},
+      {title:"B a bit bloggy", value: "2", FontSize: 1},
+      {title:"C the blogs", value: "3", FontSize: 1}
+    ]
+  }
+});
